@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.jp.fun-duration'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.jp.singlepro"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    viewBinding.enabled = true
+}
+
+// 在 app 模块的 build.gradle 中
+/*class MySimplePlugin implements Plugin<Project> {
+    @Override
+    void apply(Project project) {
+        project.task('helloWorld') {
+            doLast {
+                println("Hello from MySimplePlugin!")
+            }
+        }
+    }
+}
+
+// 应用插件
+apply plugin: MySimplePlugin
+
+// 方式一：直接在 build.gradle 中定义插件逻辑
+class MyBuildPlugin implements Plugin<Project> {
+    @Override
+    void apply(Project project) {
+        // 创建自定义任务
+        project.task('myAutoTask') {
+            doLast {
+                println("jp auto task build -------------------------------------------------bbbbbbbbbbbbbbbbbbbbbbbbiubiu")
+            }
+        }
+
+        // 获取 Android 扩展（需要先应用 Android 插件）
+        def android = project.extensions.findByName("android")
+        if (android != null) {
+            // 绑定到编译 Java 任务前执行
+            project.tasks.whenTaskAdded { task ->
+                if (task.name == 'compileDebugJavaWithJavac') {
+                    task.dependsOn(project.tasks.myAutoTask)
+                }
+            }
+        }
+    }
+}
+
+// 应用插件（确保在 Android 插件之后应用）
+apply plugin: MyBuildPlugin
+*/
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // if u use AndroidX, use the following
+    implementation 'com.blankj:utilcodex:1.31.1'
+
+}

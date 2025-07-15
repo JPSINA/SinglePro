@@ -1,0 +1,82 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "SinglePro",
+    "module": "asm",
+    "version": "unspecified",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.3.3"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.7.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "asm-unspecified.jar",
+          "url": "asm-unspecified.jar",
+          "size": 1931,
+          "sha512": "a14beab1daca4f4f20c68f94e02918cc8d1c8f647f240f14b21b86ff0e54587110ec90df1bd35f8471ad14d2f863481535127d46c9d597aeebc29c8f8b3b18eb",
+          "sha256": "986e688240083028cc13d5269e006bb25f2ff38b3212418ad572f721faf46c64",
+          "sha1": "d205f09122236468053a98030638b55f61783dbb",
+          "md5": "26b94176d7f9389d8e51fc3d507b8597"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.7.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "asm-unspecified.jar",
+          "url": "asm-unspecified.jar",
+          "size": 1931,
+          "sha512": "a14beab1daca4f4f20c68f94e02918cc8d1c8f647f240f14b21b86ff0e54587110ec90df1bd35f8471ad14d2f863481535127d46c9d597aeebc29c8f8b3b18eb",
+          "sha256": "986e688240083028cc13d5269e006bb25f2ff38b3212418ad572f721faf46c64",
+          "sha1": "d205f09122236468053a98030638b55f61783dbb",
+          "md5": "26b94176d7f9389d8e51fc3d507b8597"
+        }
+      ]
+    }
+  ]
+}

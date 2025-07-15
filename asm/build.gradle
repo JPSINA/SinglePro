@@ -1,0 +1,71 @@
+plugins {
+    id 'groovy' // Groovy Language
+    id 'org.jetbrains.kotlin.jvm' // Kotlin
+    id 'java-gradle-plugin' // Java Gradle Plugin
+    id 'maven-publish' // 发布插件，下面publishing需要这个插件
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+
+        java {
+            srcDir 'src/main/java'
+        }
+
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            // 插件的组id，通常可以设置为插件的包名
+            groupId = 'com.jp'
+            // 插件的id
+            artifactId = 'fun-duration'
+            // 插件的版本
+            version = '1.0.0'
+            // 组件类型
+            from components.kotlin
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("./repo")
+        }
+    }
+}
+
+/**
+ * 声明插件信息，会在build/resources/META-INF/gradle-plugins/com.jp.fun-duration.properties中生成
+ * 这里如果不配置，需要自己配置resources文件夹，添加properties配置文件
+ */
+
+gradlePlugin {
+    plugins {
+        modularPlugin {
+            // Plugin id.
+            id = 'com.jp.fun-duration'
+            // Plugin implementation.
+            implementationClass = 'com.jp.asm.FunDurationPlugin'
+        }
+    }
+}
+
+
+dependencies {
+
+    // Transform用到的依赖
+//    implementation 'com.android.tools.build:gradle:4.0.0'
+
+    // ASM依赖
+   /* implementation 'org.ow2.asm:asm:9.1'
+    implementation 'org.ow2.asm:asm-commons:9.1'*/
+}
+
